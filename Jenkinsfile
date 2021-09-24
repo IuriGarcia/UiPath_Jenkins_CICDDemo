@@ -1,6 +1,6 @@
 pipeline {
 	    agent any
-	
+
 
 	        // Environment Variables
 	        environment {
@@ -8,14 +8,14 @@ pipeline {
 	        MINOR = '0'
 	        //Orchestrator Services
 	        UIPATH_ORCH_URL = "https://cloud.uipath.com/"
-	        UIPATH_ORCH_LOGICAL_NAME = "anupaminc"
-	        UIPATH_ORCH_TENANT_NAME = "Descriptify"
-	        UIPATH_ORCH_FOLDER_NAME = "Default"
+	        UIPATH_ORCH_LOGICAL_NAME = "galpgmljjdi"
+	        UIPATH_ORCH_TENANT_NAME = "DefaultTenant"
+	        UIPATH_ORCH_FOLDER_NAME = "Shared"
 	    }
-	
+
 
 	    stages {
-	
+
 
 	        // Printing Basic Information
 	        stage('Preparing'){
@@ -26,11 +26,11 @@ pipeline {
 	                echo "Jenkins JOB Name ${env.JOB_NAME}"
 	                echo "GitHub BranhName ${env.BRANCH_NAME}"
 	                checkout scm
-	
+
 
 	            }
 	        }
-	
+
 
 	         // Build Stages
 	        stage('Build') {
@@ -50,7 +50,7 @@ pipeline {
 	                echo 'Testing..the workflow...'
 	            }
 	        }
-	
+
 
 	         // Deploy Stages
 	        stage('Deploy to UAT') {
@@ -63,15 +63,15 @@ pipeline {
 	                folderName: "${UIPATH_ORCH_FOLDER_NAME}",
 	                environments: 'DEV',
 	                //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
-	                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'), 
-	
+	                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
+
 
 	        )
 	            }
 	        }
-	
 
-	
+
+
 
 	         // Deploy to Production Step
 	        stage('Deploy to Production') {
@@ -80,7 +80,7 @@ pipeline {
 	                }
 	            }
 	    }
-	
+
 
 	    // Options
 	    options {
@@ -88,11 +88,11 @@ pipeline {
 	        timeout(time:80, unit:'MINUTES')
 	        skipDefaultCheckout()
 	    }
-	
 
-	
 
-	    // 
+
+
+	    //
 	    post {
 	        success {
 	            echo 'Deployment has been completed!'
@@ -105,6 +105,6 @@ pipeline {
 	            cleanWs()
 	        }
 	    }
-	
+
 
 	}
