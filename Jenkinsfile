@@ -40,7 +40,8 @@ pipeline {
 	                      outputPath: "Output\\${env.BUILD_NUMBER}",
 	                      projectJsonPath: "project.json",
 	                      version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
-	                      useOrchestrator: false
+	                      useOrchestrator: false,
+												traceLoggingLevel: 'None'
 	        )
 	            }
 	        }
@@ -64,7 +65,7 @@ pipeline {
 	                environments: 'DEV',
 	                //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
 	                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
-
+									traceLoggingLevel: 'None'
 
 	        )
 	            }

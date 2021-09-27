@@ -34,7 +34,9 @@
       "privateWorkflows": []
     },
     "processOptions": {
-      "ignoredFiles": []
+      "ignoredFiles": [
+        "cli-steps.txt"
+      ]
     },
     "fileInfoCollection": [],
     "modernBehavior": false
@@ -50,5 +52,6 @@
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {}
+  "publishData": {},
+  "targetFramework": "Legacy"
 }
