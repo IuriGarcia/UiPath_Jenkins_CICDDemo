@@ -1,0 +1,5 @@
+Workflow Analyzer:
+C:\Users\iuri.garcia\AppData\Local\UiPath\app-21.4.4\UiPath.Studio.CommandLine.exe analyze -p "C:\Users\iuri.garcia\Documents\UiPath\UiPath_Jenkins_CICDDemo\Main.xaml"
+
+Publicar
+C:\Users\iuri.garcia\AppData\Local\UiPath\app-21.4.4\UiPath.Studio.CommandLine.exe publish -p "C:\Users\iuri.garcia\Documents\UiPath\UiPath_Jenkins_CICDDemo\project.json"
